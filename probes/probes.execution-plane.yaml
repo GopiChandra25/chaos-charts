@@ -4,3 +4,6 @@ probes:
   tags:
   - productcatalogue
   type: cmdProbe
+- infraType: Kubernetes
+  name: podtato-entry
+  type: httpProbe

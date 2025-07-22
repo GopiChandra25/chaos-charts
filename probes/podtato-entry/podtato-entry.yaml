@@ -1,0 +1,18 @@
+httpProbe/inputs:
+  method:
+    get:
+      criteria: ==
+      responseCode: "200"
+  tlsConfig:
+    insecureSkipVerify: true
+  url: https://podtato-entry-podtato-kubectl.apps.useast-2-sre-1.mcp.fisdev.local/
+mode: Continuous
+name: podtato-entry
+runProperties:
+  attempt: 1
+  initialDelay: 0s
+  interval: 10s
+  probePollingInterval: 10s
+  probeTimeout: 5s
+  verbosity: debug
+type: httpProbe
