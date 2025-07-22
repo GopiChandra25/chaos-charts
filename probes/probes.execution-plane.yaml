@@ -1,0 +1,6 @@
+probes:
+- infraType: Kubernetes
+  name: product-catalogue-pod-startup-time-probe
+  tags:
+  - productcatalogue
+  type: cmdProbe
