@@ -1,0 +1,40 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChartServiceVersion
+metadata:
+  annotations:
+    categories: ""
+    chartDescription: ""
+    createdAt: ""
+    repository: ""
+    support: ""
+    vendor: ""
+  name: loadgenerator-pod-delete-dba91
+packageInfo:
+  experiments: null
+  packageName: ""
+spec:
+  categoryDescription: injects pod-delete fault on application kind Deployment, name
+    loadgenerator in online-shop namespace
+  displayName: loadgenerator-pod-delete-dba91
+  experiments: null
+  faults:
+  - chaosType: ""
+    description: ""
+    displayName: ""
+    name: pod-delete-ndlig
+    plan: null
+    supportedVersion: null
+  identity: ""
+  infras: null
+  keywords:
+  - fault=pod-delete
+  - probe=default-harness-k8s-system-cmd-probe
+  - applicationmap=onlineapplatest
+  - service=loadgenerator
+  - networkmap-onlineapplatest
+  - workload=loadgenerator
+  permissionsRequired: ""
+  plan: null
+  provider:
+    name: ""
+  scenarios: null

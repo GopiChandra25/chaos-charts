@@ -1,0 +1,52 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: KubernetesChaosExperiment
+metadata:
+  name: loadgenerator-pod-delete-dba91
+  namespace: online-shop
+spec:
+  cleanupPolicy: delete
+  experimentId: ""
+  experimentRunId: ""
+  serviceAccountName: litmus
+  steps:
+  - - name: pod-delete-ndlig
+      status: ""
+  tasks:
+  - definition:
+      chaos:
+        components:
+          resources: {}
+          statusCheckTimeouts:
+            delay: 2
+            timeout: 300
+        defaultHealthCheck: false
+        env:
+        - name: TOTAL_CHAOS_DURATION
+          value: "30"
+        - name: CHAOS_INTERVAL
+          value: "10"
+        - name: FORCE
+          value: "false"
+        - name: RAMP_TIME
+        - name: POD_AFFECTED_PERCENTAGE
+        - name: TARGET_PODS
+        - name: NODE_LABEL
+        - name: SEQUENCE
+          value: parallel
+        experiment: pod-delete
+        image: mcp-docker-dev.docker.fis.dev/harness/chaos-ddcr-faults:1.62.2
+        imagePullPolicy: IfNotPresent
+      targets:
+        application: null
+        selectors:
+          workloads:
+          - kind: deployment
+            labels: ""
+            names: loadgenerator
+            namespace: online-shop
+    name: pod-delete-ndlig
+    probeRef:
+    - mode: Edge
+      probeID: default-harness-k8s-system-cmd-probe
+    values: null
+variables: null
