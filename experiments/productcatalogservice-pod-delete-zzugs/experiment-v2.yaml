@@ -1,0 +1,54 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: KubernetesChaosExperiment
+metadata:
+  name: productcatalogservice-pod-delete-zzugs
+  namespace: online-shop
+spec:
+  cleanupPolicy: delete
+  experimentId: ""
+  experimentRunId: ""
+  serviceAccountName: online-shop-sa
+  steps:
+  - - name: pod-delete-ikwap
+      status: ""
+  tasks:
+  - definition:
+      chaos:
+        components:
+          resources: {}
+          statusCheckTimeouts:
+            delay: 2
+            timeout: 300
+        defaultHealthCheck: false
+        env:
+        - name: TOTAL_CHAOS_DURATION
+          value: "10"
+        - name: CHAOS_INTERVAL
+          value: "10"
+        - name: FORCE
+          value: "false"
+        - name: RAMP_TIME
+        - name: POD_AFFECTED_PERCENTAGE
+        - name: TARGET_PODS
+        - name: NODE_LABEL
+        - name: SEQUENCE
+          value: parallel
+        experiment: pod-delete
+        image: mcp-docker-dev.docker.fis.dev/harness/chaos-ddcr-faults:1.62.2
+        imagePullPolicy: IfNotPresent
+      targets:
+        application: null
+        selectors:
+          workloads:
+          - kind: deployment
+            labels: ""
+            names: productcatalogservice
+            namespace: online-shop
+    name: pod-delete-ikwap
+    probeRef:
+    - mode: Edge
+      probeID: default-harness-k8s-system-cmd-probe
+    - mode: Continuous
+      probeID: product-service-availability-check
+    values: null
+variables: null

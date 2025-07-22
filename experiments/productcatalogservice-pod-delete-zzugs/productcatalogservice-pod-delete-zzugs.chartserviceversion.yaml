@@ -1,0 +1,41 @@
+apiVersion: litmuschaos.io/v1alpha1
+kind: ChartServiceVersion
+metadata:
+  annotations:
+    categories: ""
+    chartDescription: ""
+    createdAt: ""
+    repository: ""
+    support: ""
+    vendor: ""
+  name: productcatalogservice-pod-delete-zzugs
+packageInfo:
+  experiments: null
+  packageName: ""
+spec:
+  categoryDescription: injects pod-delete fault on application kind Deployment, name
+    productcatalogservice in online-shop namespace
+  displayName: productcatalogservice-pod-delete-zzugs
+  experiments: null
+  faults:
+  - chaosType: ""
+    description: ""
+    displayName: ""
+    name: pod-delete-ikwap
+    plan: null
+    supportedVersion: null
+  identity: ""
+  infras: null
+  keywords:
+  - fault=pod-delete
+  - probe=default-harness-k8s-system-cmd-probe
+  - applicationmap=onlineapplatest
+  - service=productcatalogservice
+  - networkmap-onlineapplatest
+  - workload=productcatalogservice
+  - probe=product-service-availability-check
+  permissionsRequired: ""
+  plan: null
+  provider:
+    name: ""
+  scenarios: null
